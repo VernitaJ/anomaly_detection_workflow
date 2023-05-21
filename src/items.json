@@ -1,0 +1,49 @@
+{
+    "components" : [
+        {
+          "name": "Requirements",
+          "description":
+            "The requirements gathering process involves collecting and documenting the necessary features and functionalities of the system to be developed with the relevant stakeholders. The output of this step is a document containing the <strong>system requirements</strong>, which specifies the desired behavior and functionality of the system. The document should cover all relevant aspects of the system, such as input data sources, output formats, performance requirements, and any other relevant information."
+        },
+        {
+          "name": "System Design",
+          "description":
+            "The system design phase involves creating detailed specifications for the system based on the requirements document. This step includes defining the <strong>architecture</strong> of the system, choosing the appropriate <strong>technologies</strong> and <strong>tools</strong> to be used. The output of this step is a set of <strong>design documents</strong> that describe the system's structure and behavior, including a detailed description of the data flow through the system."
+        },
+        {
+          "name": "Data Analysis",
+          "description":
+            "The anomaly analysis phase involves analyzing the data to identify patterns and trends that may indicate anomalous behavior. This can be achieved using techniques such as <strong>time-series analysis</strong>, <strong>signal processing</strong>, and <strong>statistical modeling</strong>. The output of this step includes the results of the analysis, which may take the form of visualizations, time-series transformations, and summary statistics."
+        },
+        {
+          "name": "Data Processing",
+          "description":
+          "<p>The data processing step involves preparing the input data for use in the machine learning model. <br/>This includes:</p><p>- <strong>data cleaning</strong> </br>o Remove noise from the data [Software Eng for machine learning] </br>o Normalize timesteps to the preferred sample rate. </br>- <strong>feature engineering</strong> </br>o Extract and select features for the machine learning model &ndash; this includes adding values of separate datasets if there is correlation between them. <br>o Normalize data where necessary (if two or more features are used and differ in margin)</p><p>The output of this step includes the training data, which is used to train the machine learning model, and the test data, which is used to evaluate the performance of the model. Additionally, the output may include a data detail report, which describes the distribution of the input data and any data preprocessing steps that were applied. Note that this step is repeated multiple times if numerous models are created for different datasets.</p><p>Full example:  Torque and Temperature show a correlation.  1. Torque training and testing dataset is created.  2. Temperature training and testing dataset is created. 3. Torque and Temperature datasets are normalized using MinMax normalization. Datasets are combined as such: torque, temperature, timestamp Torque&amp;Temperature training and testing dataset is created.</p>"
+        },
+        {
+          "name": "Machine Learning Model",
+          "description":
+            "<p>The machine learning model is trained on the input data to predict time-series data. Two selections are made:</p><p>1. Input sample The amount of datapoints used to predict the future value, i.e., [datapoint 0-30] 2. Timestep The future timestep that is to be predicted, i.e.: how many timesteps into the future the model is required to predict, i.e., [60 datapoints]  Note: These steps are repeated multiple times to find a timestep which can be accurately predicted.)</p><p>There are various machine learning algorithms that can be used for anomaly detection, such as LSTM and SVM. The output of this step is a trained model that can be used to predict a future value of the dataset. Models are trained and saved with their specified names, input sample, and timestep, i.e., &lsquo;torque_30_60&rsquo;, &lsquo;torque_temperature_30_60&rsquo;.</p><p>After the model/s are trained, they are evaluated using the test data, and metrics analysed.</p><p>1. Mean Squared Error (MSE): This metric measures the average squared difference between the predicted and actual values. It's a popular metric for regression problems and can be used to evaluate the overall accuracy of the model.</p><p>2. Root Mean Squared Error (RMSE): This metric calculates the square root of the MSE, which provides the error in the same units as the data. It's a good metric to use when you want to compare the performance of different models.</p><p>3. Mean Absolute Error (MAE): This metric measures the absolute difference between the predicted and actual values, regardless of the direction of the error. It's also a popular metric for regression problems.</p><p>4. Mean Absolute Percentage Error (MAPE): This metric measures the percentage difference between the predicted and actual values. It's a good metric to use when you want to compare the performance of the model across different datasets.</p><p>5. Coefficient of Determination (R-squared): This metric measures the proportion of the variance in the dependent variable that is predictable from the independent variables. It's a good metric to use when you want to evaluate how well the model fits the data.</p><p>6. Symmetric Mean Absolute Percentage Error (SMAPE): This metric measures the percentage difference between the predicted and actual values, but it takes into account the magnitude of the values. It's a good metric to use when the magnitude of the values is important.</p><p>It's recommended to use multiple metrics to get a more comprehensive understanding of how well the model is performing.</p><p>This process is iterated until a sufficient model is trained.</p>"
+        },
+        {
+          "name": "Anomaly Classification",
+          "description":
+            "<p>The anomaly classification step involves defining the criteria for identifying anomalies and assigning severity scores to them. This can be achieved using techniques such as sliding time windows and thresholding. The output of this step includes the <strong>time windows</strong> used for classification and the <strong>severity thresholds</strong> assigned to different types of anomalies. The anomaly analysis phase provides information to base these decisions on.</p><p><strong>Full example:</strong> </p><p>Temperature shows repetitive patterns over 5min intervals. A <b>sliding window</b> of 5mins, 20mins, and 30mins is selected. Over 5min intervals the mean difference of Temperature is 1.2deg. Decision made to base a <i>low severity</i> threshold of 1.5deg, <i>medium severity</i> threshold of 1.9deg, and <i>high severity</i> threshold of 2.5deg.</p>"
+        },
+        {
+          "name": "Testing",
+          "description":
+            "During system evaluation <b>it</b> is recommended to append anomalous values into the dataset to find whether the model performs as expected, and the anomalies are identified.The output of this step includes test results, which describe the model's performance in terms of metrics such as accuracy, precision, and recall. Additionally, the output may include a metrics report, which summarizes the model's performance across multiple evaluation metrics."
+        },
+        {
+          "name": "Deployment",
+          "description":
+            "The deployment step involves releasing the anomaly detection system into production. This includes packaging the system and deploying it to the production environment. The output of this step includes a release version of the system and system statistics, which describe how the system is performing in production."
+        },
+        {
+          "name": "Maintenance",
+          "description":
+            "The maintenance step involves monitoring the performance of the anomaly detection system in production and adjusting as necessary. This includes retraining the machine learning model with new data and comparing its performance to the previous version. Additionally, the output of this step includes a performance report, which describes the system's performance over time, and a maintenance report, which documents any issues or changes made to the system during maintenance."
+        }
+      ]
+}
