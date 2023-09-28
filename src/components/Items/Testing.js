@@ -30,9 +30,7 @@ const Testing = () => {
       </p>
       <p>
         The output of this step includes test results, which describe the
-        model's performance in terms of metrics such as accuracy, precision, and
-        recall. Additionally, the output may include a metrics report, which
-        summarizes the model's performance across multiple evaluation metrics.
+        state of the system.
       </p>
 
       <h4>Unit Testing</h4>
