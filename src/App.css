@@ -5,6 +5,13 @@
   font-size: small;
 }
 
+@media (max-width: 600px) {
+  .App {
+    padding: 0 15px;
+    overflow-x: scroll;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

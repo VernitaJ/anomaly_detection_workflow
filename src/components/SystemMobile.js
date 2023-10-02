@@ -3,7 +3,7 @@ import system from "../arrows/system.svg";
 import styled from "styled-components";
 import ModuleInfo from "./ModuleInfo";
 
-const System = () => {
+const SystemMobile = () => {
   let [selected, setSelected] = React.useState(null);
   const items = [
     "Data Module",
@@ -18,9 +18,7 @@ const System = () => {
   };
 
   return (
-    <div>
-      <Box>
-        <Sidebar>
+    <Container>
           <h4>System architecture</h4>
           <p>
             In an integrated smart anomaly detection system, the{" "}
@@ -48,45 +46,26 @@ const System = () => {
               selected={selected}
             />
           ))}
-        </Sidebar>
         <img
           src={system}
           alt="Anomaly Detection Process"
           style={{ width: "40%" }}
         />
-      </Box>
-    </div>
+    </Container>
   );
 };
 
-export default System;
+export default SystemMobile;
 
-const Box = styled.div`
-  margin: 30px auto;
-  display: flex;
-  gap: 60px;
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 5px;
-  img {
-    margin: 40px auto;
+const Container = styled.div`
+img {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
     margin-top: 30px !important;
     margin-bottom: auto !important;
     padding-bottom: 30px;
-  }
-  @media (max-width: 600px) {
-    margin: 0 auto;
-    width: 100%;
-    flex-direction: column-reverse;
-    img {
-      position: fixed;
-      width: 100%;
-      margin: 0 auto;
-      margin-top: 30px !important;
-      margin-bottom: auto !important;
-      padding-bottom: 30px;
-    }
-  }
+}
 `;
 
 const Sidebar = styled.div`

@@ -3,7 +3,7 @@ import artefact from "../arrows/artefact.svg";
 
 const Artefact = () => {
   return (
-    <div>
+    <div >
         <img
         src={artefact}
         alt="Anomaly Detection Process"

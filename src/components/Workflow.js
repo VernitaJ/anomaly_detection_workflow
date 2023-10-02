@@ -62,7 +62,7 @@ const Workflow = () => {
       <div style={{display: "flex", flexDirection: "column"}}>
         <div
           style={{
-            display: "flex",
+            display: "flex",  overflowX: 'scroll'
           }}
         >
           {items.components.map((component) => (
